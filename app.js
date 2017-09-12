@@ -16,3 +16,23 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get(/^\/(\d{5})$/, (req, res, next) => {
+  let zipcode = req.params[0];
+  let location = zipdb.zipcode(zipcode);
+  if (!location.zipcode) {
+    next();
+    return;
+  }
+
+  res.json({
+    zipcode: zipcode,
+    temperature: data.currently.temperature
+  });
+});
+
+app.use((req, res) => {
+  res.status(404).render("404");
+});
+
+app.listen(3000);

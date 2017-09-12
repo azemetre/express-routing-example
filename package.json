@@ -5,6 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "make-static": "mkdir -p static/css/",
+    "copy-purecss": "cp ./node_modules/purecss/build/pure-min.css static/css/.",
+    "copy-assets": "npm run make-static && npm run copy-purecss",
     "dev": "nodemon app.js"
   },
   "keywords": [
@@ -21,9 +24,16 @@
     "ejs": "2.5.7",
     "express": "4.15.4",
     "forecastio": "1.0.2",
+    "purecss": "1.0.0",
     "zippity-do-dah": "0.0.3"
   },
   "devDependencies": {
+    "eslint": "4.6.1",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-node": "5.1.1",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1",
     "nodemon": "1.12.0"
   }
 }

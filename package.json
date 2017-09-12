@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "make-static": "mkdir -p static/css/",
-    "copy-purecss": "cp ./node_modules/purecss/build/pure-min.css static/css/.",
-    "copy-assets": "npm run make-static && npm run copy-purecss",
+    "cp-purecss": "cp ./node_modules/purecss/build/pure-min.css static/css/.",
+    "cp-jquery": "cp ./node_modules/jquery/dist/jquery.min.js static/js/.",
+    "cp-assets": "npm run cp-jquery && npm run cp-purecss",
     "dev": "nodemon app.js"
   },
   "keywords": [
@@ -24,6 +24,7 @@
     "ejs": "2.5.7",
     "express": "4.15.4",
     "forecastio": "1.0.2",
+    "jquery": "2.2.4",
     "purecss": "1.0.0",
     "zippity-do-dah": "0.0.3"
   },
